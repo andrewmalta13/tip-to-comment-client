@@ -1,0 +1,28 @@
+{
+  "name": "tip-to-comment-client",
+  "version": "1.0.0",
+  "description": "A client to interface with the openpublish tip to comment service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrewmalta13/tip-to-comment-client"
+  },
+  "keywords": [
+    "tip",
+    "blockchain",
+    "blockai",
+    "openpublish",
+    "ownership",
+    "smart",
+    "contracts"
+  ],
+  "author": "Andrew Malta <andrew.malta@yale.edu>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewmalta13/tip-to-comment-client/issues"
+  },
+  "homepage": "https://github.com/andrewmalta13/tip-to-comment-client"
+}
