@@ -19,7 +19,7 @@ var tipToCommentClient = require('../')({
 });
 ```
 
-#Usage
+# Usage
 
 NOTE: the commonWallet address has to have tipped the post to be able to succesfully comment on the post
 
