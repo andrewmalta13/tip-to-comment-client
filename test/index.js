@@ -22,7 +22,7 @@ test('should be able to succesfully comment on a specific post', function(t) {
     sha1: "e4a3d2d12585d49ded571850e9e709bbdbe319c5"
   }, function (err, response) {
     t.ok(!err, "no error on commenting");
-    t.equal(response, comment, "comment we get back is the same as the one we sent.");
+    t.equal(response.body, comment, "comment we get back is the same as the one we sent.");
     t.end();
   });
 });
@@ -34,9 +34,8 @@ test('should be able to succesfully get comments from a specific address', funct
     query: "mjf6CRReqGSyvbgryjE3fbGjptRRfAL7cg"
   }, function (err, response) {
     t.ok(!err, "no error on getting comments");
-    var comments = JSON.parse(response);
-    t.ok(comments.length > 0, "able to retrieve comments for the address");
-    t.equal(comments[0].commenter, address, "comments we retrieved were for the correct account");
+    t.ok(response.length > 0, "able to retrieve comments for the address");
+    t.equal(response[0].commenter, address, "comments we retrieved were for the correct account");
     t.end();
   });
 });
@@ -48,9 +47,8 @@ test('should be able to succesfully get comments from a specific sha1', function
     query: "e4a3d2d12585d49ded571850e9e709bbdbe319c5"
   }, function (err, response) {
     t.ok(!err, "no error on getting comments");
-    var comments = JSON.parse(response);
-    t.ok(comments.length > 0, "able to retrieve comments for the sha1");
-    t.equal(comments[0].sha1, sha1, "comments we retrieved were for the correct sha1");
+    t.ok(response.length > 0, "able to retrieve comments for the sha1");
+    t.equal(response[0].sha1, sha1, "comments we retrieved were for the correct sha1");
     t.end();
   });
 });

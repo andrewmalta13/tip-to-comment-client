@@ -34,7 +34,14 @@ function tipToComment (opts) {
              callback(err, null);
            }
            else {
-             callback(false, body);
+             var parsedBody;
+             try {
+               parsedBody = JSON.parse(body);
+               callback(false, parsedBody);
+             }
+             catch (err) {
+               callback(body, null)
+             }
            }
         });
       }
@@ -57,11 +64,18 @@ function tipToComment (opts) {
           url: baseURL + "/getComments/" + options.method + "/" + options.query,
           headers: headers
         }, function (error, response, body) {
-          if (response.statusCode === 500) {
-            callback("error retieving comments", null);
+          if (err) {
+            callback("error retieving comments: " + err, null);
           }
           else {
-            callback(false, body);
+            var parsedBody;
+            try {
+              parsedBody = JSON.parse(body);
+              callback(false, parsedBody);
+            }
+            catch (err) {
+              callback(body, null)
+            }
           }
         });
       }
@@ -78,7 +92,14 @@ function tipToComment (opts) {
         callback("error retieving number of comments", null);
       }
       else {
-        callback(false, parseInt(body));
+        var parsedInt;
+        try {
+          parsedInt = parseInt(body);
+          callback(false, parsedInt);
+        }
+        catch (err) {
+          callback(body, null)
+        }
       }
     });
   }
