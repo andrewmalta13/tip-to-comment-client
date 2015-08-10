@@ -68,9 +68,25 @@ function tipToComment (opts) {
     });
   }
 
+  function getNumComments (options, callback) {
+    var sha1 = options.sha1;
+    var url = "http://tiptocomment.herokuapp.com/getNumComments/" + sha1;
+    request({
+      url: url
+    }, function (error, response, body) {
+      if (response.statusCode === 500) {
+        callback("error retieving number of comments", null);
+      }
+      else {
+        callback(false, parseInt(body));
+      }
+    });
+  }
+
   return {
     comment: comment,
-    getComments: getComments
+    getComments: getComments,
+    getNumComments: getNumComments
   }
 }
 

@@ -52,3 +52,12 @@ tipToCommentClient.getComments({
 }
 ```
 
+returns the number of comments on the supplied sha1, does not require any authentication (therefore services like coinvote can display a comment count without the user having to tip or authenticate)
+```javascript
+tipToCommentClient.getNumComments({
+  sha1: "the sha1 you are interested about"
+}, callback (error, comments) {
+   /* callback */
+}
+```
+

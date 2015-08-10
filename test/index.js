@@ -55,3 +55,14 @@ test('should be able to succesfully get comments from a specific sha1', function
   });
 });
 
+test('should be able to succesfully get the number of comments on a specific sha1', function(t) {
+  var sha1 = "e4a3d2d12585d49ded571850e9e709bbdbe319c5";
+  tipToCommentClient.getNumComments({
+    sha1: "e4a3d2d12585d49ded571850e9e709bbdbe319c5"
+  }, function (err, response) {
+    t.ok(!err, "no error on getting comments");
+    t.ok(response > 0, "the module returns a positive integer for number of comments");
+    t.end();
+  });
+});
+
