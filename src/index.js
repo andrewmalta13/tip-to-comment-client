@@ -74,7 +74,7 @@ function tipToComment (opts) {
               callback(false, parsedBody);
             }
             catch (err) {
-              callback(body, null)
+              callback(err, null)
             }
           }
         });
